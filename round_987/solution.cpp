@@ -39,9 +39,9 @@ ll gcd(ll a, ll b)
 /*___________________________________________________________________________________________________________________________________*/
 map<int, int> findDivisors(int num)
 {
-    cout << "Received num: " << num << " \n";
     map<int, int> mp;
-    for (int i = 2; i <= sqrt(num); i++)
+    mp.insert({1, num});
+    for (int i = 2; i <= num; i++)
     {
         if (num % i == 0)
         {
@@ -65,34 +65,44 @@ int main()
         cin >> k;
         int totalElements = k - 2;
         bool gotAns = false;
-        map<int, bool> mp;
-        vector<int> v(k);
-        for (auto &it : v)
+        map<int, int> mp;
+        vector<int> v;
+        for (int i = 0; i < k; i++)
         {
             int itm;
             cin >> itm;
+            v.pb(itm);
             if (mp.find(itm) == mp.end())
             {
-                mp.insert({itm, true});
-                v.pb(itm);
+                mp.insert({itm, i});
             }
+            else
+                mp[itm]++;
         }
         map<int, int> multipliers = findDivisors(totalElements);
         for (auto it : multipliers)
-            cout << "first: " << it.first << " second: " << it.second << nline;
         for (int i = 0; i < k; i++)
         {
+            int firstDivisor = v[i];
             if (multipliers.find(v[i]) != multipliers.end())
             {
-                int second = multipliers[i];
+                auto it = multipliers.find(v[i]);
+                int second = it->second;
                 if (mp.find(second) != mp.end())
                 {
-                    auto index = multipliers.find(v[i]);
-                    cout << index->first << " " << second << nline;
-                    break;
+                    if (second == firstDivisor && mp[firstDivisor] >= 2)
+                    {
+                        cout << v[i] << " " << second << nline;
+                        cout<<"hello ";
+                    }
+                    else if (second != firstDivisor)
+                    {
+                        cout << v[i] << " " << second << nline;
+                        cout<<"Hii ";
+                    }
                 }
             }
         }
-        return 0;
     }
+    return 0;
 }
