@@ -41,7 +41,7 @@ map<int, int> findDivisors(int num)
 {
     map<int, int> mp;
     mp.insert({1, num});
-    for (int i = 2; i <= num; i++)
+    for (int i = 2; i <= sqrt(num); i++)
     {
         if (num % i == 0)
         {
@@ -74,13 +74,12 @@ int main()
             v.pb(itm);
             if (mp.find(itm) == mp.end())
             {
-                mp.insert({itm, i});
+                mp.insert({itm, 1});
             }
             else
                 mp[itm]++;
         }
         map<int, int> multipliers = findDivisors(totalElements);
-        for (auto it : multipliers)
         for (int i = 0; i < k; i++)
         {
             int firstDivisor = v[i];
@@ -90,16 +89,18 @@ int main()
                 int second = it->second;
                 if (mp.find(second) != mp.end())
                 {
-                    if (second == firstDivisor && mp[firstDivisor] >= 2)
+                    if (second == firstDivisor)
                     {
-                        cout << v[i] << " " << second << nline;
-                        cout<<"hello ";
+                        if (mp[firstDivisor] >= 2)
+                        {
+                            cout << v[i] << " " << second << nline;
+                            break;
+                        }
+                        else
+                            continue;
                     }
-                    else if (second != firstDivisor)
-                    {
-                        cout << v[i] << " " << second << nline;
-                        cout<<"Hii ";
-                    }
+                    cout << v[i] << " " << second << nline;
+                    break;
                 }
             }
         }

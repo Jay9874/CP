@@ -1,0 +1,67 @@
+{
+    // Place your snippets for cpp here. Each snippet is defined under a snippet name and has a prefix, body and
+    // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+    // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+    // same ids are connected.
+    // Example:
+    "CP_temp": {
+      "prefix": "cp_temp",
+      "body": [
+        "#include <bits/stdc++.h>",
+        "using namespace std;",
+        "#define nline \"n\"",
+        "#define pb push_back",
+        "#define ppb pop_back",
+        "#define mp make_pair",
+        "#define ff first",
+        "#define ss second",
+        "#define mod 1000000007",
+        "#define PI 3.141592653589793238462",
+        "#define set_bits __builtin_popcountll",
+        "#define sz(x) ((int)(x).size())",
+        "#define all(x) (x).begin(), (x).end()",
+  
+        "typedef long long ll;",
+        "typedef unsigned long long ull;",
+        "typedef long double lld;",
+        "typedef long long int ll;",
+  
+        "ll larg_multi(ll a, ll b) {",
+        "\tll remain;",
+        "\tremain = a % b;",
+        "\tll multi = (a - remain) / b;",
+        "\treturn multi;",
+        "}",
+        "bool isWhole(float a){",
+        "\tif (floor(a) == a) return true;",
+        "\treturn false;",
+        "}",
+        "ll gcd(ll a, ll b){",
+        "\tif (b > a) return gcd(b, a);",
+        "\tif (b == 0) return a;",
+        "\treturn gcd(b, a % b);",
+        "}",
+  
+        "/*___________________________________________________________________________________________________________________________________*/",
+        "int solve(){",
+        "\t$0",
+        "}",
+        
+        "int main(){",
+        "#ifndef ONLINE_JUDGE",
+        "\tfreopen(\"input.txt\", \"r\", stdin);",
+        "\tfreopen(\"output.txt\", \"w\", stdout);",
+        "#endif",
+        "\tint t;",
+        "\tcin >> t;",
+        "\twhile (t--){",
+        "\t\tsolve();",
+        "\t}",
+        "return 0;",
+        "}\n",
+        
+      ],
+      "description": "template for new file in cp."
+    }
+  }
+  
